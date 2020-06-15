@@ -1,0 +1,245 @@
+================================================================================
+Config: model=electra_small, trial 1/1
+================================================================================
+answerable_classifier True
+answerable_uses_start_logits True
+answerable_weight 0.5
+beam_size 20
+data_dir ./
+debug False
+do_eval True
+do_lower_case True
+do_train True
+doc_stride 128
+double_unordered True
+embedding_size 128
+eval_batch_size 32
+gcp_project None
+init_checkpoint ./models/electra_small
+iterations_per_loop 1000
+joint_prediction True
+keep_all_models True
+layerwise_lr_decay 0.8
+learning_rate 0.0001
+log_examples False
+max_answer_length 30
+max_query_length 64
+max_seq_length 128
+model_dir ./models/electra_small/finetuning_models/senticorp_model
+model_hparam_overrides {}
+model_name electra_small
+model_size small
+n_best_size 20
+n_writes_test 5
+num_tpu_cores 1
+num_train_epochs 3.0
+num_trials 1
+predict_batch_size 32
+preprocessed_data_dir ./models/electra_small/finetuning_tfrecords/senticorp_tfrecords
+qa_eval_file <built-in method format of str object at 0x7fa3204cb3b0>
+qa_na_file <built-in method format of str object at 0x7fa3204cb490>
+qa_na_threshold -2.75
+qa_preds_file <built-in method format of str object at 0x7fa3204cb420>
+raw_data_dir <built-in method format of str object at 0x7fa3204db030>
+results_pkl ./models/electra_small/results/senticorp_results.pkl
+results_txt ./models/electra_small/results/senticorp_results.txt
+save_checkpoints_steps 1000000
+task_names ['senticorp']
+test_predictions <built-in method format of str object at 0x7fa3204d2288>
+tpu_job_name None
+tpu_name None
+tpu_zone None
+train_batch_size 32
+use_tfrecords_if_existing True
+use_tpu False
+vocab_file ./models/electra_small/vocab.txt
+vocab_size 30522
+warmup_proportion 0.1
+weight_decay_rate 0.01
+write_test_outputs True
+
+Loading dataset senticorp_train
+Existing tfrecords not found so creating
+Writing example 0 of 12064
+Writing example 2000 of 12064
+Writing example 4000 of 12064
+Writing example 6000 of 12064
+Writing example 8000 of 12064
+Writing example 10000 of 12064
+Writing example 12000 of 12064
+================================================================================
+Start training: model=electra_small, trial 1/1
+================================================================================
+Training for 1131 steps
+Building model...
+Building complete
+2020-03-31 07:08:51.318751: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2394275000 Hz
+2020-03-31 07:08:51.321792: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x595c6d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-03-31 07:08:51.321855: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-03-31 07:08:51.325655: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-03-31 07:08:51.580716: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5956310 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-03-31 07:08:51.580770: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 2080 Ti, Compute Capability 7.5
+2020-03-31 07:08:51.581668: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.65
+pciBusID: 0000:83:00.0
+2020-03-31 07:08:51.606539: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2020-03-31 07:08:51.887605: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+2020-03-31 07:08:52.019282: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10.0
+2020-03-31 07:08:52.077616: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10.0
+2020-03-31 07:08:52.373538: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10.0
+2020-03-31 07:08:52.549669: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10.0
+2020-03-31 07:08:53.203832: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-03-31 07:08:53.205539: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-03-31 07:08:53.205629: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2020-03-31 07:08:53.215930: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-03-31 07:08:53.215959: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0 
+2020-03-31 07:08:53.215972: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N 
+2020-03-31 07:08:53.217773: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8389 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:83:00.0, compute capability: 7.5)
+2020-03-31 07:09:18.355170: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+10/1131 = 0.9%, SPS: 0.7, ELAP: 15, ETA: 28:16 - loss: 66.1566
+20/1131 = 1.8%, SPS: 1.2, ELAP: 16, ETA: 15:10 - loss: 54.7319
+30/1131 = 2.7%, SPS: 1.7, ELAP: 18, ETA: 10:47 - loss: 57.5811
+40/1131 = 3.5%, SPS: 2.1, ELAP: 19, ETA: 8:33 - loss: 45.3947
+50/1131 = 4.4%, SPS: 2.5, ELAP: 20, ETA: 7:13 - loss: 49.8419
+60/1131 = 5.3%, SPS: 2.8, ELAP: 21, ETA: 6:19 - loss: 36.0487
+70/1131 = 6.2%, SPS: 3.1, ELAP: 22, ETA: 5:39 - loss: 37.5988
+80/1131 = 7.1%, SPS: 3.4, ELAP: 24, ETA: 5:10 - loss: 43.8353
+90/1131 = 8.0%, SPS: 3.6, ELAP: 25, ETA: 4:47 - loss: 44.3688
+100/1131 = 8.8%, SPS: 3.9, ELAP: 26, ETA: 4:28 - loss: 36.1525
+110/1131 = 9.7%, SPS: 4.1, ELAP: 27, ETA: 4:12 - loss: 27.9261
+120/1131 = 10.6%, SPS: 4.2, ELAP: 28, ETA: 3:59 - loss: 42.7828
+130/1131 = 11.5%, SPS: 4.4, ELAP: 30, ETA: 3:48 - loss: 32.8635
+140/1131 = 12.4%, SPS: 4.5, ELAP: 31, ETA: 3:38 - loss: 32.0547
+150/1131 = 13.3%, SPS: 4.7, ELAP: 32, ETA: 3:29 - loss: 33.3528
+160/1131 = 14.1%, SPS: 4.8, ELAP: 33, ETA: 3:22 - loss: 34.6743
+170/1131 = 15.0%, SPS: 4.9, ELAP: 34, ETA: 3:15 - loss: 32.9721
+180/1131 = 15.9%, SPS: 5.0, ELAP: 36, ETA: 3:09 - loss: 28.7416
+190/1131 = 16.8%, SPS: 5.1, ELAP: 37, ETA: 3:03 - loss: 31.8241
+200/1131 = 17.7%, SPS: 5.2, ELAP: 38, ETA: 2:57 - loss: 34.3032
+210/1131 = 18.6%, SPS: 5.3, ELAP: 39, ETA: 2:53 - loss: 33.3850
+220/1131 = 19.5%, SPS: 5.4, ELAP: 41, ETA: 2:48 - loss: 30.7651
+230/1131 = 20.3%, SPS: 5.5, ELAP: 42, ETA: 2:44 - loss: 30.8948
+240/1131 = 21.2%, SPS: 5.6, ELAP: 43, ETA: 2:40 - loss: 32.0414
+250/1131 = 22.1%, SPS: 5.6, ELAP: 44, ETA: 2:36 - loss: 27.3275
+260/1131 = 23.0%, SPS: 5.7, ELAP: 45, ETA: 2:32 - loss: 30.2315
+270/1131 = 23.9%, SPS: 5.8, ELAP: 47, ETA: 2:29 - loss: 29.6227
+280/1131 = 24.8%, SPS: 5.8, ELAP: 48, ETA: 2:26 - loss: 30.0764
+290/1131 = 25.6%, SPS: 5.9, ELAP: 49, ETA: 2:23 - loss: 34.1550
+300/1131 = 26.5%, SPS: 6.0, ELAP: 50, ETA: 2:20 - loss: 27.7710
+310/1131 = 27.4%, SPS: 6.0, ELAP: 52, ETA: 2:17 - loss: 37.5308
+320/1131 = 28.3%, SPS: 6.1, ELAP: 53, ETA: 2:14 - loss: 37.1084
+330/1131 = 29.2%, SPS: 6.1, ELAP: 54, ETA: 2:11 - loss: 22.7633
+340/1131 = 30.1%, SPS: 6.2, ELAP: 55, ETA: 2:08 - loss: 37.6189
+350/1131 = 30.9%, SPS: 6.2, ELAP: 56, ETA: 2:06 - loss: 42.1721
+360/1131 = 31.8%, SPS: 6.2, ELAP: 58, ETA: 2:03 - loss: 31.1803
+370/1131 = 32.7%, SPS: 6.3, ELAP: 59, ETA: 2:01 - loss: 33.2134
+380/1131 = 33.6%, SPS: 6.3, ELAP: 1:00, ETA: 1:59 - loss: 24.7492
+390/1131 = 34.5%, SPS: 6.4, ELAP: 1:01, ETA: 1:56 - loss: 33.3863
+400/1131 = 35.4%, SPS: 6.4, ELAP: 1:02, ETA: 1:54 - loss: 24.1300
+410/1131 = 36.3%, SPS: 6.5, ELAP: 1:04, ETA: 1:52 - loss: 31.0036
+420/1131 = 37.1%, SPS: 6.5, ELAP: 1:05, ETA: 1:49 - loss: 28.3960
+430/1131 = 38.0%, SPS: 6.6, ELAP: 1:06, ETA: 1:47 - loss: 23.2799
+440/1131 = 38.9%, SPS: 6.6, ELAP: 1:07, ETA: 1:45 - loss: 37.3296
+450/1131 = 39.8%, SPS: 6.6, ELAP: 1:08, ETA: 1:43 - loss: 28.8283
+460/1131 = 40.7%, SPS: 6.6, ELAP: 1:10, ETA: 1:42 - loss: 26.3116
+470/1131 = 41.6%, SPS: 6.6, ELAP: 1:11, ETA: 1:40 - loss: 38.6293
+480/1131 = 42.4%, SPS: 6.6, ELAP: 1:12, ETA: 1:38 - loss: 36.5527
+490/1131 = 43.3%, SPS: 6.7, ELAP: 1:13, ETA: 1:36 - loss: 21.6311
+500/1131 = 44.2%, SPS: 6.7, ELAP: 1:14, ETA: 1:34 - loss: 27.5683
+510/1131 = 45.1%, SPS: 6.7, ELAP: 1:16, ETA: 1:32 - loss: 37.2298
+520/1131 = 46.0%, SPS: 6.8, ELAP: 1:17, ETA: 1:30 - loss: 30.8118
+530/1131 = 46.9%, SPS: 6.8, ELAP: 1:18, ETA: 1:29 - loss: 33.0625
+540/1131 = 47.7%, SPS: 6.8, ELAP: 1:19, ETA: 1:27 - loss: 27.9379
+550/1131 = 48.6%, SPS: 6.8, ELAP: 1:21, ETA: 1:25 - loss: 29.1510
+560/1131 = 49.5%, SPS: 6.9, ELAP: 1:22, ETA: 1:23 - loss: 28.2730
+570/1131 = 50.4%, SPS: 6.9, ELAP: 1:23, ETA: 1:22 - loss: 23.9034
+580/1131 = 51.3%, SPS: 6.9, ELAP: 1:24, ETA: 1:20 - loss: 26.8424
+590/1131 = 52.2%, SPS: 6.9, ELAP: 1:25, ETA: 1:18 - loss: 19.1786
+600/1131 = 53.1%, SPS: 6.9, ELAP: 1:27, ETA: 1:17 - loss: 28.5694
+610/1131 = 53.9%, SPS: 7.0, ELAP: 1:28, ETA: 1:15 - loss: 24.0261
+620/1131 = 54.8%, SPS: 7.0, ELAP: 1:29, ETA: 1:13 - loss: 23.4913
+630/1131 = 55.7%, SPS: 7.0, ELAP: 1:30, ETA: 1:12 - loss: 32.7996
+640/1131 = 56.6%, SPS: 7.0, ELAP: 1:31, ETA: 1:10 - loss: 34.7324
+650/1131 = 57.5%, SPS: 7.0, ELAP: 1:33, ETA: 1:09 - loss: 32.1701
+660/1131 = 58.4%, SPS: 7.0, ELAP: 1:34, ETA: 1:07 - loss: 28.8575
+670/1131 = 59.2%, SPS: 7.0, ELAP: 1:35, ETA: 1:05 - loss: 25.9734
+680/1131 = 60.1%, SPS: 7.1, ELAP: 1:36, ETA: 1:04 - loss: 20.5931
+690/1131 = 61.0%, SPS: 7.1, ELAP: 1:38, ETA: 1:02 - loss: 32.0723
+700/1131 = 61.9%, SPS: 7.1, ELAP: 1:39, ETA: 1:01 - loss: 27.5071
+710/1131 = 62.8%, SPS: 7.1, ELAP: 1:40, ETA: 59 - loss: 19.4321
+720/1131 = 63.7%, SPS: 7.1, ELAP: 1:41, ETA: 58 - loss: 17.9705
+730/1131 = 64.5%, SPS: 7.1, ELAP: 1:42, ETA: 56 - loss: 34.7813
+740/1131 = 65.4%, SPS: 7.1, ELAP: 1:44, ETA: 55 - loss: 23.6602
+750/1131 = 66.3%, SPS: 7.2, ELAP: 1:45, ETA: 53 - loss: 23.6232
+760/1131 = 67.2%, SPS: 7.2, ELAP: 1:46, ETA: 52 - loss: 25.0840
+770/1131 = 68.1%, SPS: 7.2, ELAP: 1:47, ETA: 50 - loss: 27.1699
+780/1131 = 69.0%, SPS: 7.2, ELAP: 1:48, ETA: 49 - loss: 26.9132
+790/1131 = 69.8%, SPS: 7.2, ELAP: 1:50, ETA: 47 - loss: 30.1393
+800/1131 = 70.7%, SPS: 7.2, ELAP: 1:51, ETA: 46 - loss: 24.9008
+810/1131 = 71.6%, SPS: 7.2, ELAP: 1:52, ETA: 44 - loss: 31.9644
+820/1131 = 72.5%, SPS: 7.2, ELAP: 1:53, ETA: 43 - loss: 25.5036
+830/1131 = 73.4%, SPS: 7.3, ELAP: 1:54, ETA: 41 - loss: 25.5300
+840/1131 = 74.3%, SPS: 7.3, ELAP: 1:56, ETA: 40 - loss: 23.8779
+850/1131 = 75.2%, SPS: 7.3, ELAP: 1:57, ETA: 39 - loss: 30.2202
+860/1131 = 76.0%, SPS: 7.3, ELAP: 1:58, ETA: 37 - loss: 33.6767
+870/1131 = 76.9%, SPS: 7.3, ELAP: 1:59, ETA: 36 - loss: 25.1168
+880/1131 = 77.8%, SPS: 7.3, ELAP: 2:00, ETA: 34 - loss: 21.4402
+890/1131 = 78.7%, SPS: 7.3, ELAP: 2:02, ETA: 33 - loss: 25.8356
+900/1131 = 79.6%, SPS: 7.3, ELAP: 2:03, ETA: 32 - loss: 24.4078
+910/1131 = 80.5%, SPS: 7.3, ELAP: 2:04, ETA: 30 - loss: 24.6228
+920/1131 = 81.3%, SPS: 7.3, ELAP: 2:05, ETA: 29 - loss: 28.7030
+930/1131 = 82.2%, SPS: 7.3, ELAP: 2:07, ETA: 27 - loss: 26.4050
+940/1131 = 83.1%, SPS: 7.4, ELAP: 2:08, ETA: 26 - loss: 27.4544
+950/1131 = 84.0%, SPS: 7.4, ELAP: 2:09, ETA: 25 - loss: 15.7553
+960/1131 = 84.9%, SPS: 7.4, ELAP: 2:10, ETA: 23 - loss: 22.3984
+970/1131 = 85.8%, SPS: 7.4, ELAP: 2:11, ETA: 22 - loss: 27.2392
+980/1131 = 86.6%, SPS: 7.4, ELAP: 2:13, ETA: 20 - loss: 26.9519
+990/1131 = 87.5%, SPS: 7.4, ELAP: 2:14, ETA: 19 - loss: 28.9193
+1000/1131 = 88.4%, SPS: 7.4, ELAP: 2:15, ETA: 18 - loss: 22.1837
+1010/1131 = 89.3%, SPS: 7.4, ELAP: 2:16, ETA: 16 - loss: 21.8945
+1020/1131 = 90.2%, SPS: 7.4, ELAP: 2:17, ETA: 15 - loss: 22.6294
+1030/1131 = 91.1%, SPS: 7.4, ELAP: 2:19, ETA: 14 - loss: 25.9721
+1040/1131 = 92.0%, SPS: 7.4, ELAP: 2:20, ETA: 12 - loss: 24.1412
+1050/1131 = 92.8%, SPS: 7.4, ELAP: 2:21, ETA: 11 - loss: 19.4096
+1060/1131 = 93.7%, SPS: 7.4, ELAP: 2:22, ETA: 10 - loss: 33.0710
+1070/1131 = 94.6%, SPS: 7.5, ELAP: 2:24, ETA: 8 - loss: 22.7850
+1080/1131 = 95.5%, SPS: 7.5, ELAP: 2:25, ETA: 7 - loss: 28.2703
+1090/1131 = 96.4%, SPS: 7.5, ELAP: 2:26, ETA: 5 - loss: 23.1649
+1100/1131 = 97.3%, SPS: 7.5, ELAP: 2:27, ETA: 4 - loss: 31.1893
+1110/1131 = 98.1%, SPS: 7.5, ELAP: 2:28, ETA: 3 - loss: 18.1812
+1120/1131 = 99.0%, SPS: 7.5, ELAP: 2:30, ETA: 1 - loss: 25.1612
+1130/1131 = 99.9%, SPS: 7.5, ELAP: 2:31, ETA: 0 - loss: 20.1003
+
+================================================================================
+Run dev set evaluation: model=electra_small, trial 1/1
+================================================================================
+Evaluating senticorp
+Loading dataset senticorp_dev
+Existing tfrecords not found so creating
+Writing example 0 of 4022
+Writing example 2000 of 4022
+Writing example 4000 of 4022
+Building model...
+Building complete
+2020-03-31 07:11:58.804789: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.65
+pciBusID: 0000:83:00.0
+2020-03-31 07:11:58.804924: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2020-03-31 07:11:58.804957: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+2020-03-31 07:11:58.804988: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10.0
+2020-03-31 07:11:58.805019: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10.0
+2020-03-31 07:11:58.805048: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10.0
+2020-03-31 07:11:58.805078: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10.0
+2020-03-31 07:11:58.805111: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-03-31 07:11:58.806276: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-03-31 07:11:58.806326: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-03-31 07:11:58.806339: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0 
+2020-03-31 07:11:58.806349: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N 
+2020-03-31 07:11:58.807716: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8389 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:83:00.0, compute capability: 7.5)
+senticorp: accuracy: 65.56 - loss: 0.83
+
+Writing results to ./models/electra_small/results/senticorp_results.txt
+================================================================================
+Running on the test set and writing the predictions: model=electra_small, trial 1/1
+================================================================================
+Skipping task senticorp - writing predictions is not supported for this task

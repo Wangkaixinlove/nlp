@@ -1,0 +1,1 @@
+senticorp: accuracy: 63.71 - loss: 0.85
